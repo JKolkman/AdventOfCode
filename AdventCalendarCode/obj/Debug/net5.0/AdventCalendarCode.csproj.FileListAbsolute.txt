@@ -1,0 +1,16 @@
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.exe
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.deps.json
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.runtimeconfig.json
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.runtimeconfig.dev.json
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.dll
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\ref\AdventCalendarCode.dll
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\bin\Debug\net5.0\AdventCalendarCode.pdb
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.csproj.AssemblyReference.cache
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.AssemblyInfoInputs.cache
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.AssemblyInfo.cs
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.csproj.CoreCompileInputs.cache
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.dll
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\ref\AdventCalendarCode.dll
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.pdb
+C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\obj\Debug\net5.0\AdventCalendarCode.genruntimeconfig.cache
