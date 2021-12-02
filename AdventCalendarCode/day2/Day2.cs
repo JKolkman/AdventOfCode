@@ -10,58 +10,34 @@ namespace AdventCalendarCode.day2
         {
             _lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day2\Day2-Input");
             
-            Console.WriteLine("Results of Day 2");
-            Console.WriteLine(Task1());
-            Console.WriteLine(Task2());
-            Console.WriteLine();
+            Console.WriteLine("--Day 2--");
+            BothTasks();
         }
 
-        private string Task1()
+        private void BothTasks()
         {
-            var depth = 0;
-            var horizontal = 0;
+            var nums = new int[] {0,0,0}; // 0 Depth, 1 Aim, 2 Dist
             foreach (var line in _lines)
             {
                 var split = line.Split(" ");
-                var i = split[0] switch
-                {
-                    "forward" => horizontal += int.Parse(split[1]),
-                    "down" => depth += int.Parse(split[1]),
-                    "up" => depth -= int.Parse(split[1]),
-                    _ => throw new ArgumentOutOfRangeException()
-                };
-            }
-
-            var answer = depth * horizontal;
-
-            return $"The depth * horizontal = {answer}";
-        }
-
-        public string Task2()
-        {
-            var depth = 0;
-            var horizontal = 0;
-            var aim = 0;
-            foreach (var line in _lines)
-            {
-                var split = line.Split(" ");
+                var num = int.Parse(split[1]);
                 switch (split[0])
                 {
                     case "forward":
-                        horizontal += int.Parse(split[1]);
-                        depth += (int.Parse(split[1]) * aim);
+                        nums[2] += num;
+                        nums[0] += (num * nums[1]);
                         break;
-                    case "down":
-                        aim += int.Parse(split[1]);
+                    case "down" :
+                        nums[1] += num;
                         break;
-                    case "up":
-                        aim -= int.Parse(split[1]);
+                    case "up" :
+                        nums[1] -= num;
                         break;
                 }
             }
-
-            var answer = depth * horizontal;
-            return $"The depth * horizontal = {answer}";
+            
+            Console.WriteLine($"Task 1: {nums[1] * nums[2]}");
+            Console.WriteLine($"Task 2: {nums[0] * nums[2]}\n");
         }
     }
 }

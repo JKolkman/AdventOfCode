@@ -11,12 +11,11 @@ namespace AdventCalendarCode.day1
             var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day1\Day1-Input.txt");
             _numbers = Array.ConvertAll(lines, int.Parse);
             
-            Console.WriteLine("Results of Day 1");
-            Console.WriteLine(Task1());
-            Console.WriteLine(Task2());
-            Console.WriteLine();
+            Console.WriteLine("--Day 1--");
+            Task1();
+            Task2();
         }
-        private string Task1()
+        private void Task1()
         {
             var counter = 0;
             for(var i = 1; i < _numbers.Length; i++)
@@ -26,9 +25,9 @@ namespace AdventCalendarCode.day1
                     counter++;
                 }
             }
-            return $"The depth increases {counter} times.";
+            Console.WriteLine($"Task 1: {counter}");
         }
-        private string Task2()
+        private void Task2()
         {
             var counter = 0;
             for (var i = 3; i < _numbers.Length; i++)
@@ -41,7 +40,7 @@ namespace AdventCalendarCode.day1
                     counter++;
                 }
             }
-            return $"The depth per set of 3 increases {counter} times";
+            Console.WriteLine($"Task 2: {counter}\n");
         }
     }
 }
