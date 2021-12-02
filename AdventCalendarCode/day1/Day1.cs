@@ -8,12 +8,13 @@ namespace AdventCalendarCode.day1
         private int[] _numbers;
         public void Run()
         {
-            var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day1\Day1-Input");
+            var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day1\Day1-Input.txt");
             _numbers = Array.ConvertAll(lines, int.Parse);
             
             Console.WriteLine("Results of Day 1");
             Console.WriteLine(Task1());
             Console.WriteLine(Task2());
+            Console.WriteLine();
         }
         private string Task1()
         {
