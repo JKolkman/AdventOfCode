@@ -1,5 +1,6 @@
 ﻿using AdventCalendarCode.day1;
 using AdventCalendarCode.day2;
+using AdventCalendarCode.day3;
 
 namespace AdventCalendarCode
 {
@@ -9,6 +10,7 @@ namespace AdventCalendarCode
         {
             new Day1().Run();
             new Day2().Run();
+            new Day3().Run();
         }
     }
 }

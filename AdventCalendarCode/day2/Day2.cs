@@ -16,7 +16,7 @@ namespace AdventCalendarCode.day2
 
         private void BothTasks()
         {
-            var nums = new int[] {0,0,0}; // 0 Depth, 1 Aim, 2 Dist
+            var nums = new int[] {0,0,0}; // 0 Depth, 1 Aim, 2 Distance
             foreach (var line in _lines)
             {
                 var split = line.Split(" ");
