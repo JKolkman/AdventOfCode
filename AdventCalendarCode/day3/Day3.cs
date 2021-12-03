@@ -57,42 +57,33 @@ namespace AdventCalendarCode.day3
 
         private void Task2()
         {
-            var nums = new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             var oxygen = _lines.ToList();
             var co2 = _lines.ToList();
-            for (var i = 0; i < nums.Length; i++)
-            {
-                var value = findCommon(oxygen.ToArray(), i);
-                oxygen.RemoveAll(s => s.ToCharArray()[i].ToString().Equals(value));
-                value = findCommon(co2.ToArray(), i, true, false); 
-                co2.RemoveAll(s => s.ToCharArray()[i].ToString().Equals(value));
-            }
             
+            for (var i = 0; i < 12; i++)
+            {
+                oxygen = ReturnCuratedList(oxygen, i, true);
+                co2 = ReturnCuratedList(co2, i, false);
+            }
             Console.WriteLine($"Task 2: {(Convert.ToInt32(oxygen.ToArray()[0], 2) * Convert.ToInt32(co2.ToArray()[0], 2))}\n");
-
         }
 
-        private string findCommon(string[] list, int index, bool invert = false, bool ox = true)
+        private static List<string> ReturnCuratedList(List<string> input, int i, bool oxygen)
         {
-            var items = new[] {0, 0};
-            foreach (var item in list)
+            var zeroes = input.FindAll(x => x.ToCharArray()[i].Equals('0')).Count;
+            var ones = input.FindAll(x => x.ToCharArray()[i].Equals('1')).Count;
+            char remove;
+            if (zeroes == 0 || ones == 0)
+            { } else if (zeroes <= ones)
             {
-                items[int.Parse(item.ToCharArray()[index].ToString())]++;
-            }
-
-            if (items[0] == 0 || items[1] == 0)
+                remove = oxygen ? '0' : '1';
+                input.RemoveAll(x => x.ToCharArray()[i].Equals(remove));
+            } else 
             {
-                return "X";
+                remove = oxygen ? '1' : '0';
+                input.RemoveAll(x => x.ToCharArray()[i].Equals(remove));
             }
-            if (items[0] > items[1])
-            {
-                return invert ? "1" : "0";
-            }
-            if (items[0] == items[1])
-            {
-                return ox ? "1" : "0";
-            }
-            return invert ? "0" : "1";
+            return input;
         }
     }
 }
