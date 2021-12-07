@@ -4,6 +4,7 @@ using AdventCalendarCode.day3;
 using AdventCalendarCode.day4;
 using AdventCalendarCode.day5;
 using AdventCalendarCode.day6;
+using AdventCalendarCode.day7;
 
 namespace AdventCalendarCode
 {
@@ -16,7 +17,8 @@ namespace AdventCalendarCode
             //new Day3().Run();
             //new Day4().Run();
             //new Day5().Run();
-            new Day6().Run();
+            //new Day6().Run();
+            var day7 = new Day7();
         }
     }
 }

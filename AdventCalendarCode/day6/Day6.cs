@@ -22,7 +22,7 @@ namespace AdventCalendarCode.day6
             Console.Write("Task 1: ");
             Tasks(80);
             Console.Write("Task 2: ");
-            Tasks(256);
+            Tasks(256); 
         }
 
         private void Tasks(int days)
