@@ -8,7 +8,7 @@ namespace AdventCalendarCode.day3
     {
         private string[] _lines;
 
-        public void Run()
+        public Day3()
         {
             _lines = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day3\Day3-Input.txt");

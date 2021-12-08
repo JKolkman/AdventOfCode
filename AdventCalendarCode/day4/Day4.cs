@@ -8,16 +8,16 @@ namespace AdventCalendarCode.day4
     {
         private string[] _lines;
         private List<Day4_Board> _boards = new List<Day4_Board>();
-        public void Run()
+        public Day4()
         {
             _lines = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day4\Day4-Input.txt");
             _lines = _lines.Where(x => !string.IsNullOrEmpty(x)).ToArray();
             Console.WriteLine("-- Day 4--");
-            Task1();
+            BothTasks();
         }
 
-        private void Task1()
+        private void BothTasks()
         {
             var bingoNumbers = Array.ConvertAll(_lines[0].Split(","), int.Parse);
             (int, int) firstWin = (-1, -1);

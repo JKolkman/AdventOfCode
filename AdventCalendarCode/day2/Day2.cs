@@ -6,7 +6,7 @@ namespace AdventCalendarCode.day2
     {
         private string[] _lines;
         
-        public void Run()
+        public Day2()
         {
             _lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day2\Day2-Input");
             
