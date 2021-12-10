@@ -1,4 +1,5 @@
 ﻿using AdventCalendarCode.day1;
+using AdventCalendarCode.day10;
 using AdventCalendarCode.day2;
 using AdventCalendarCode.day3;
 using AdventCalendarCode.day4;
@@ -24,7 +25,8 @@ namespace AdventCalendarCode
             //new Day6();
             //new Day7();
             //new Day8(test);
-            new Day9(test);
+            //new Day9(test);
+            new Day10(test);
         }
     }
 }
