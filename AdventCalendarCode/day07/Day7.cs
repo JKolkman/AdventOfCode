@@ -1,20 +1,22 @@
 using System;
-using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 
-namespace AdventCalendarCode.day7
+namespace AdventCalendarCode.day07
 {
-    public class Day7
+    public class Day7 : IDay
     {
-        private string[] _input;
-        private int[] _inputNum;
+        private readonly int[] _inputNum;
+
         public Day7()
         {
-            _input = System.IO.File.ReadAllLines(
+            var input = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day07\Day7-Input.txt");
-            _inputNum = Array.ConvertAll(_input[0].Split(","), int.Parse);
+            _inputNum = Array.ConvertAll(input[0].Split(","), int.Parse);
             //_inputNum = new int[]{16, 1, 2, 0, 4, 2, 7, 1, 2, 14};
+        }
+
+        public void Run()
+        {
             Console.Write("Day 07: ");
             BothTasks();
         }

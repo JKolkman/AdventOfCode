@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Linq;
 
-namespace AdventCalendarCode.day1
+namespace AdventCalendarCode.day01
 {
-    internal class Day1
+    internal class Day1 : IDay
     {
-        private int[] _numbers;
+        private readonly int[] _numbers;
         public Day1()
         {
             var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day01\Day1-Input.txt");
             _numbers = Array.ConvertAll(lines, int.Parse);
-            
+        }
+
+        public void Run()
+        {
             Console.Write("Day 01: ");
             Task1();
             Task2();
         }
+
         private void Task1()
         {
             var counter = 0;

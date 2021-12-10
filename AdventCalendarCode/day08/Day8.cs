@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 
-namespace AdventCalendarCode.day8
+namespace AdventCalendarCode.day08
 {
-    public class Day8
+    public class Day8 : IDay
     {
-        private string[] _input;
+        private readonly string[] _input;
+
         public Day8(bool test)
         {
             _input = test switch
@@ -17,7 +16,10 @@ namespace AdventCalendarCode.day8
                 false => System.IO.File.ReadAllLines(
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day08\Day8-Input.txt")
             };
-            
+        }
+
+        public void Run()
+        {
             Console.Write("Day 08: ");
             Task1();
             Task2();

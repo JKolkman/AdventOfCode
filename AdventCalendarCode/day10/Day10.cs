@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace AdventCalendarCode.day10
 {
-    public class Day10
+    public class Day10 : IDay
     {
         private readonly string[] _input;
 
@@ -42,7 +42,10 @@ namespace AdventCalendarCode.day10
                 false => System.IO.File.ReadAllLines(
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day10\Day10-Input.txt")
             };
+        }
 
+        public void Run()
+        {
             Console.Write("Day 10: ");
             Tasks();
         }

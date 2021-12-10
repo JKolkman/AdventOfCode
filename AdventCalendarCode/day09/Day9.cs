@@ -1,41 +1,42 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
-namespace AdventCalendarCode.day9
+namespace AdventCalendarCode.day09
 {
-    public class Day9
+    public class Day9 : IDay
     {
-        private readonly string[] _input;
         private readonly int[,] _field;
-        private readonly List<Point> lowpoints;
+        private readonly List<Point> _lowPoints;
 
         public Day9(bool test)
         {
-            _input = test switch
+            var input = test switch
             {
                 true => System.IO.File.ReadAllLines(
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day09\Day9-TestInput.txt"),
                 false => System.IO.File.ReadAllLines(
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day09\Day9-Input.txt")
             };
-            _field = new int[_input.Length, _input[0].ToCharArray().Length];
-            lowpoints = new List<Point>();
-            for (var y = 0; y < _input.Length; y++)
+            _field = new int[input.Length, input[0].ToCharArray().Length];
+            _lowPoints = new List<Point>();
+
+            for (var y = 0; y < input.Length; y++)
             {
-                for (var x = 0; x < _input[y].ToCharArray().Length; x++)
+                for (var x = 0; x < input[y].ToCharArray().Length; x++)
                 {
-                    _field[y, x] = int.Parse(_input[y].ToCharArray()[x].ToString());
+                    _field[y, x] = int.Parse(input[y].ToCharArray()[x].ToString());
                 }
             }
+        }
 
+        public void Run()
+        {
             Console.Write("Day 09: ");
             Task1();
             Task2();
         }
-
+        
         private void Task1()
         {
             var total = 0;
@@ -44,9 +45,9 @@ namespace AdventCalendarCode.day9
                 for (var x = 0; x < _field.GetLength(1); x++)
                 {
                     var neighbours = FindNeighbours(x, y);
-                    if (!neighbours.All(n => n.value > _field[y, x])) continue;
+                    if (!neighbours.All(n => n.Value > _field[y, x])) continue;
                     total += _field[y, x] + 1;
-                    lowpoints.Add(new Point(_field[y,x], x, y));
+                    _lowPoints.Add(new Point(_field[y, x], x, y));
                 }
             }
 
@@ -56,7 +57,7 @@ namespace AdventCalendarCode.day9
         private void Task2()
         {
             var basins = new List<int>();
-            foreach (var point in lowpoints)
+            foreach (var point in _lowPoints)
             {
                 var stack = new Stack<Point>();
                 var basin = new List<Point> {point};
@@ -65,17 +66,17 @@ namespace AdventCalendarCode.day9
                 while (stack.Count > 0)
                 {
                     var cur = stack.Pop();
-                    var neighbours = FindNeighbours(cur.x, cur.y);
+                    var neighbours = FindNeighbours(cur.X, cur.Y);
 
                     foreach (var neighbour in neighbours)
                     {
                         var alreadyThere = false;
-                        foreach (var p in basin.Where(p => p.x == neighbour.x && p.y == neighbour.y))
+                        foreach (var p in basin.Where(p => p.X == neighbour.X && p.Y == neighbour.Y))
                         {
                             alreadyThere = true;
                         }
 
-                        if (alreadyThere || neighbour.value <= _field[cur.y, cur.x] || neighbour.value == 9) continue;
+                        if (alreadyThere || neighbour.Value <= _field[cur.Y, cur.X] || neighbour.Value == 9) continue;
                         stack.Push(neighbour);
                         basin.Add(neighbour);
                     }
@@ -121,15 +122,15 @@ namespace AdventCalendarCode.day9
 
     internal class Point
     {
-        public int value;
-        public int x;
-        public int y;
+        public readonly int Value;
+        public readonly int X;
+        public readonly int Y;
         
         public Point(int value, int x, int y)
         {
-            this.value = value;
-            this.x = x;
-            this.y = y;
+            this.Value = value;
+            this.X = x;
+            this.Y = y;
         }
     }
 }

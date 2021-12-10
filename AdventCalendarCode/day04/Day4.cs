@@ -1,18 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AdventCalendarCode.day4;
 
-namespace AdventCalendarCode.day4
+namespace AdventCalendarCode.day04
 {
-    public class Day4
+    public class Day4 : IDay
     {
         private readonly string[] _lines;
         private readonly List<Day4_Board> _boards = new List<Day4_Board>();
+
         public Day4()
         {
             _lines = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day04\Day4-Input.txt");
             _lines = _lines.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+
+        public void Run()
+        {
             Console.Write("Day 04: ");
             BothTasks();
         }

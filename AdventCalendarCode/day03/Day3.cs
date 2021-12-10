@@ -2,17 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventCalendarCode.day3
+namespace AdventCalendarCode.day03
 {
-    public class Day3
+    public class Day3 : IDay
     {
-        private string[] _lines;
+        private readonly string[] _lines;
 
         public Day3()
         {
             _lines = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day03\Day3-Input.txt");
+        }
 
+        public void Run()
+        {
             Console.Write("Day 03: ");
             Task1();
             Task2();

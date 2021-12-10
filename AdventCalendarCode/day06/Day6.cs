@@ -2,20 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventCalendarCode.day6
+namespace AdventCalendarCode.day06
 {
-    public class Day6
+    public class Day6 : IDay
     {
-        private string[] _input;
-        private List<int> fish;
+        private readonly List<int> _fish;
+
         public Day6()
         {
-            _input = System.IO.File.ReadAllLines(
+            var input = System.IO.File.ReadAllLines(
                 @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day06\Day6-Input.txt");
-            fish = new List<int>(Array.ConvertAll(_input[0].Split(","), int.Parse));
+            _fish = new List<int>(Array.ConvertAll(input[0].Split(","), int.Parse));
             //fish = new List<int>() {3, 4, 3, 1, 2};
-            
-            
+        }
+
+        public void Run()
+        {
             Console.Write("Day 06: ");
             Console.Write("(1) ");
             Tasks(80);
@@ -28,7 +30,7 @@ namespace AdventCalendarCode.day6
         {
             var fishLifeSpan = new double[9];
 
-            foreach (var f in fish)
+            foreach (var f in _fish)
             {
                 fishLifeSpan[f]++;
             }

@@ -2,14 +2,18 @@ using System;
 
 namespace AdventCalendarCode.day2
 {
-    public class Day2
+    public class Day2 : IDay
     {
         private string[] _lines;
-        
+
         public Day2()
         {
-            _lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day02\Day2-Input");
-            
+            _lines = System.IO.File.ReadAllLines(
+                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day02\Day2-Input");
+        }
+
+        public void Run()
+        {
             Console.Write("Day 02: ");
             BothTasks();
         }
