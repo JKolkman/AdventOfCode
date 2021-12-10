@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace AdventCalendarCode.day10
 {
@@ -20,10 +19,10 @@ namespace AdventCalendarCode.day10
             };
 
             Console.WriteLine("--Day 10--");
-            Task1();
+            Tasks();
         }
 
-        public void Task1()
+        private void Tasks()
         {
             var score = 0;
             var task2Scores = new List<long>();
