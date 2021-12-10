@@ -20,13 +20,14 @@ namespace AdventCalendarCode.day6
             Console.Write("Task 1: ");
             Tasks(80);
             Console.Write("Task 2: ");
-            Tasks(256);
+            Tasks(10240);
             Console.WriteLine();
         }
 
         private void Tasks(int days)
         {
-            var fishLifeSpan = new long[9];
+            var timestamp = DateTime.Now;
+            var fishLifeSpan = new double[9];
 
             foreach (var f in fish)
             {
@@ -34,7 +35,7 @@ namespace AdventCalendarCode.day6
             }
             for (var i = 0; i < days; i++)
             {
-                var buffer = new long[9];
+                var buffer = new double[9];
                 for (var j = 0; j < fishLifeSpan.Length; j++)
                 {
                     if (j == 0)
@@ -50,7 +51,7 @@ namespace AdventCalendarCode.day6
 
                 fishLifeSpan = buffer;
             }
-            Console.WriteLine($"{fishLifeSpan.Sum()}");
+            Console.WriteLine($"{fishLifeSpan.Sum()} : Completed in {DateTime.Now - timestamp}");
         }
     }
 }
