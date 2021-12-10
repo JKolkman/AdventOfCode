@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace AdventCalendarCode.day10
@@ -7,6 +6,30 @@ namespace AdventCalendarCode.day10
     public class Day10
     {
         private readonly string[] _input;
+
+        private static readonly Dictionary<char, char> MatchingCharacters = new Dictionary<char, char>
+        {
+            {'(', ')'},
+            {'[', ']'},
+            {'{', '}'},
+            {'<', '>'}
+        };
+
+        private static readonly Dictionary<char, int> Task1Values = new Dictionary<char, int>()
+        {
+            {')', 3},
+            {']', 57},
+            {'}', 1197},
+            {'>', 25137}
+        };
+
+        private static readonly Dictionary<char, int> Task2Values = new Dictionary<char, int>()
+        {
+            {'(', 1},
+            {'[', 2},
+            {'{', 3},
+            {'<', 4}
+        };
 
         public Day10(bool test)
         {
@@ -29,97 +52,37 @@ namespace AdventCalendarCode.day10
             
             foreach (var line in _input)
             {
-                const string openings = "([{<";
-                const string closers = ")]}>";
-                var stack = new Stack();
-                var legalLine = true;
+                var stack = new Stack<char>();
                 foreach (var c in line.ToCharArray())
                 {
-                    var charIsIllegal = false;
-                    if (openings.Contains(c))
+                    if (MatchingCharacters.ContainsKey(c))
                     {
                         stack.Push(c);
-                    } else if (closers.Contains(c))
-                    {
-                        var stackTop = stack.Pop();
-                        switch (stackTop)
-                        {
-                            case '(':
-                                if (c != ')')
-                                {
-                                    charIsIllegal = true;
-                                }
-                                break;
-                            case '[':
-                                if (c != ']')
-                                {
-                                    charIsIllegal = true;
-                                }
-                                break;
-                            case '{':
-                                if (c != '}')
-                                {
-                                    charIsIllegal = true;
-                                }
-                                break;
-                            case '<':
-                                if (c != '>')
-                                {
-                                    charIsIllegal = true;
-                                }
-                                break;
-                        }
                     }
-
-                    if (!charIsIllegal) continue;
-                    score += IllegalCharValue(c);
-                    legalLine = false;
-                    break;
+                    else
+                    {
+                        if (c == MatchingCharacters[stack.Pop()]) continue;
+                        score += Task1Values[c];
+                        break;
+                    }
                 }
 
-                if (!legalLine) continue;
+                if (score != 0) continue;
                 {
                     long t2Score = 0;
                     while (stack.Count > 0)
                     {
                         t2Score *= 5;
-                        var stackTop = stack.Pop();
-                        switch (stackTop)
-                        {
-                            case '(':
-                                t2Score += 1;
-                                break;
-                            case '[':
-                                t2Score += 2;
-                                break;
-                            case '{':
-                                t2Score += 3;
-                                break;
-                            case '<':
-                                t2Score += 4;
-                                break;
-                        }
+                        t2Score += Task2Values[stack.Pop()];
                     }
                     task2Scores.Add(t2Score);
                 }
             }
-
+            
             task2Scores.Sort();
             var middle = task2Scores.Count / 2;
             Console.WriteLine($"Task 1: {score}");
             Console.WriteLine($"Task 2: {task2Scores[middle]}");
-        }
-
-        private static int IllegalCharValue(char c)
-        {
-            return c switch
-            {
-                ')' => 3,
-                ']' => 57,
-                '}' => 1197,
-                '>' => 25137,
-                _ => 0
-            };
         }
     }
 }
