@@ -13,12 +13,12 @@ namespace AdventCalendarCode.day8
             _input = test switch
             {
                 true => System.IO.File.ReadAllLines(
-                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day8\Day8-TestInput.txt"),
+                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day08\Day8-TestInput.txt"),
                 false => System.IO.File.ReadAllLines(
-                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day8\Day8-Input.txt")
+                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day08\Day8-Input.txt")
             };
             
-            Console.WriteLine("--Day 8--");
+            Console.Write("Day 08: ");
             Task1();
             Task2();
         }
@@ -26,7 +26,7 @@ namespace AdventCalendarCode.day8
         private void Task1()
         {
             var count = (from line in _input select line.Split("|")[1].Trim() into afterDelimiter select afterDelimiter.Split(" ") into results select results.Count(res => res.Length is 2 or 3 or 4 or 7)).Sum();
-            Console.WriteLine($"Task 1: {count}");
+            Console.WriteLine($"(1) {count}");
         }
 
         private void Task2()
@@ -256,7 +256,8 @@ namespace AdventCalendarCode.day8
                 total += int.Parse(numOfSingleSet);
             }
             
-            Console.WriteLine($"Task 2: {total}");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {total}");
         }
         
         private static string SortString(string input)

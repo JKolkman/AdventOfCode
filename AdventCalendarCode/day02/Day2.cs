@@ -8,9 +8,9 @@ namespace AdventCalendarCode.day2
         
         public Day2()
         {
-            _lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day2\Day2-Input");
+            _lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day02\Day2-Input");
             
-            Console.WriteLine("--Day 2--");
+            Console.Write("Day 02: ");
             BothTasks();
         }
 
@@ -36,8 +36,8 @@ namespace AdventCalendarCode.day2
                 }
             }
             
-            Console.WriteLine($"Task 1: {nums[1] * nums[2]}");
-            Console.WriteLine($"Task 2: {nums[0] * nums[2]}\n");
+            Console.WriteLine($"(1) {nums[1] * nums[2]}");
+            Console.WriteLine($"        (2) {nums[0] * nums[2]}");
         }
     }
 }

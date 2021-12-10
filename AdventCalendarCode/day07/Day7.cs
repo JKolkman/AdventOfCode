@@ -12,10 +12,10 @@ namespace AdventCalendarCode.day7
         public Day7()
         {
             _input = System.IO.File.ReadAllLines(
-                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day7\Day7-Input.txt");
+                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day07\Day7-Input.txt");
             _inputNum = Array.ConvertAll(_input[0].Split(","), int.Parse);
             //_inputNum = new int[]{16, 1, 2, 0, 4, 2, 7, 1, 2, 14};
-            Console.WriteLine("--Day 7--");
+            Console.Write("Day 07: ");
             BothTasks();
         }
 
@@ -69,8 +69,9 @@ namespace AdventCalendarCode.day7
             
             var task2res = (fuelTask2Ceil < fuelTask2Floor) ? fuelTask2Ceil : fuelTask2Floor;
             
-            Console.WriteLine($"Task 1: {fuelTask1}");
-            Console.WriteLine($"Task 2: {task2res}\n");
+            Console.WriteLine($"(1) {fuelTask1}");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {task2res}");
         }
     }
 }

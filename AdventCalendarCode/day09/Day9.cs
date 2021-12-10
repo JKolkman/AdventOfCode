@@ -17,9 +17,9 @@ namespace AdventCalendarCode.day9
             _input = test switch
             {
                 true => System.IO.File.ReadAllLines(
-                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day9\Day9-TestInput.txt"),
+                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day09\Day9-TestInput.txt"),
                 false => System.IO.File.ReadAllLines(
-                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day9\Day9-Input.txt")
+                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day09\Day9-Input.txt")
             };
             _field = new int[_input.Length, _input[0].ToCharArray().Length];
             lowpoints = new List<Point>();
@@ -31,7 +31,7 @@ namespace AdventCalendarCode.day9
                 }
             }
 
-            Console.WriteLine("--Day 9--");
+            Console.Write("Day 09: ");
             Task1();
             Task2();
         }
@@ -50,7 +50,7 @@ namespace AdventCalendarCode.day9
                 }
             }
 
-            Console.WriteLine($"Task 1: {total}");
+            Console.WriteLine($"(1) {total}");
         }
 
         private void Task2()
@@ -86,7 +86,8 @@ namespace AdventCalendarCode.day9
             basins.Sort();
             basins.Reverse();
 
-            Console.WriteLine($"Task2: {basins[0] * basins[1] * basins[2]}");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {basins[0] * basins[1] * basins[2]}");
             
         }
 

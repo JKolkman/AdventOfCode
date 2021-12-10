@@ -11,9 +11,9 @@ namespace AdventCalendarCode.day3
         public Day3()
         {
             _lines = System.IO.File.ReadAllLines(
-                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day3\Day3-Input.txt");
+                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day03\Day3-Input.txt");
 
-            Console.WriteLine("--Day 3--");
+            Console.Write("Day 03: ");
             Task1();
             Task2();
         }
@@ -52,7 +52,7 @@ namespace AdventCalendarCode.day3
                 }
             }
             
-            Console.WriteLine($"Task 1: {(Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2))}");
+            Console.WriteLine($"(1) {(Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2))}");
         }
 
         private void Task2()
@@ -65,7 +65,8 @@ namespace AdventCalendarCode.day3
                 oxygen = ReturnCuratedList(oxygen, i, true);
                 co2 = ReturnCuratedList(co2, i, false);
             }
-            Console.WriteLine($"Task 2: {(Convert.ToInt32(oxygen.ToArray()[0], 2) * Convert.ToInt32(co2.ToArray()[0], 2))}\n");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {(Convert.ToInt32(oxygen.ToArray()[0], 2) * Convert.ToInt32(co2.ToArray()[0], 2))}");
         }
 
         private static List<string> ReturnCuratedList(List<string> input, int i, bool oxygen)

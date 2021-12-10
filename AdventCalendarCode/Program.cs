@@ -15,7 +15,7 @@ namespace AdventCalendarCode
     {
         private static void Main(string[] args)
         {
-            const bool test = true;
+            const bool test = false;
 
             //new Day1();
             //new Day2();

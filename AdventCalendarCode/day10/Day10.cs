@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdventCalendarCode.day10
 {
@@ -41,7 +43,7 @@ namespace AdventCalendarCode.day10
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day10\Day10-Input.txt")
             };
 
-            Console.WriteLine("--Day 10--");
+            Console.Write("Day 10: ");
             Tasks();
         }
 
@@ -53,6 +55,7 @@ namespace AdventCalendarCode.day10
             foreach (var line in _input)
             {
                 var stack = new Stack<char>();
+                var legalLine = true;
                 foreach (var c in line.ToCharArray())
                 {
                     if (MatchingCharacters.ContainsKey(c))
@@ -63,11 +66,12 @@ namespace AdventCalendarCode.day10
                     {
                         if (c == MatchingCharacters[stack.Pop()]) continue;
                         score += Task1Values[c];
+                        legalLine = false;
                         break;
                     }
                 }
 
-                if (score != 0) continue;
+                if (!legalLine) continue;
                 {
                     long t2Score = 0;
                     while (stack.Count > 0)
@@ -81,8 +85,9 @@ namespace AdventCalendarCode.day10
             
             task2Scores.Sort();
             var middle = task2Scores.Count / 2;
-            Console.WriteLine($"Task 1: {score}");
-            Console.WriteLine($"Task 2: {task2Scores[middle]}");
+            Console.WriteLine($"(1) {score}");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {task2Scores[middle]}");
         }
     }
 }

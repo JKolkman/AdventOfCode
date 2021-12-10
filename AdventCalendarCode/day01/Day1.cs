@@ -8,10 +8,10 @@ namespace AdventCalendarCode.day1
         private int[] _numbers;
         public Day1()
         {
-            var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day1\Day1-Input.txt");
+            var lines = System.IO.File.ReadAllLines(@"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day01\Day1-Input.txt");
             _numbers = Array.ConvertAll(lines, int.Parse);
             
-            Console.WriteLine("--Day 1--");
+            Console.Write("Day 01: ");
             Task1();
             Task2();
         }
@@ -25,7 +25,7 @@ namespace AdventCalendarCode.day1
                     counter++;
                 }
             }
-            Console.WriteLine($"Task 1: {counter}");
+            Console.WriteLine($"(1) {counter}");
         }
         private void Task2()
         {
@@ -40,7 +40,7 @@ namespace AdventCalendarCode.day1
                     counter++;
                 }
             }
-            Console.WriteLine($"Task 2: {counter}\n");
+            Console.WriteLine($"        (2) {counter}");
         }
     }
 }

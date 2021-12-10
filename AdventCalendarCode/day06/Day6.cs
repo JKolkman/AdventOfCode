@@ -11,22 +11,21 @@ namespace AdventCalendarCode.day6
         public Day6()
         {
             _input = System.IO.File.ReadAllLines(
-                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day6\Day6-Input.txt");
+                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day06\Day6-Input.txt");
             fish = new List<int>(Array.ConvertAll(_input[0].Split(","), int.Parse));
             //fish = new List<int>() {3, 4, 3, 1, 2};
             
             
-            Console.WriteLine("--Day 6--");
-            Console.Write("Task 1: ");
+            Console.Write("Day 06: ");
+            Console.Write("(1) ");
             Tasks(80);
-            Console.Write("Task 2: ");
-            Tasks(10240);
-            Console.WriteLine();
+            Console.Write($"        ");
+            Console.Write("(2) ");
+            Tasks(256);
         }
 
         private void Tasks(int days)
         {
-            var timestamp = DateTime.Now;
             var fishLifeSpan = new double[9];
 
             foreach (var f in fish)
@@ -51,7 +50,7 @@ namespace AdventCalendarCode.day6
 
                 fishLifeSpan = buffer;
             }
-            Console.WriteLine($"{fishLifeSpan.Sum()} : Completed in {DateTime.Now - timestamp}");
+            Console.WriteLine($"{fishLifeSpan.Sum()}");
         }
     }
 }

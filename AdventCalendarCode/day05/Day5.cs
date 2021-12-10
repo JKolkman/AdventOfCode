@@ -15,14 +15,14 @@ namespace AdventCalendarCode.day5
         {
             _input = new List<(string, string)>();
             _lines = System.IO.File.ReadAllLines(
-                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day5\Day5-Input.txt");
+                @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\AdventCalendarCode\day05\Day5-Input.txt");
 
             foreach (var line in _lines)
             {
                 var temp = line.Split(" -> ");
                 _input.Add((temp[0], temp[1]));
             }
-            Console.WriteLine("--Day 5--");
+            Console.Write("Day 05: ");
             Task1();
             Task2();
         }
@@ -86,7 +86,7 @@ namespace AdventCalendarCode.day5
 
             var count = grid.Cast<int>().Count(num => num >= 2);
 
-            Console.WriteLine($"Task 1: {count}");
+            Console.WriteLine($"(1) {count}");
         }
 
         private void Task2()
@@ -134,8 +134,8 @@ namespace AdventCalendarCode.day5
                 
             }
             var count = grid.Cast<int>().Count(num => num >= 2);
-
-            Console.WriteLine($"Task 2: {count}");
+            Console.Write("        ");
+            Console.WriteLine($"(2) {count}");
         }
     }
 }
