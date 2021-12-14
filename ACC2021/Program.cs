@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using AdventCalendarCode.day13;
 using AdventCalendarCode.day14;
 
 namespace AdventCalendarCode
@@ -7,7 +9,14 @@ namespace AdventCalendarCode
     {
         private static void Main(string[] args)
         {
-            const bool test = false;
+            Console.WriteLine("Test run? y/n");
+            var test = Console.ReadKey().Key switch
+            {
+                ConsoleKey.Y => true,
+                ConsoleKey.N => false,
+                _ => true,
+            };
+
             var days = new List<IDay>
             {
                 //new Day1(),
@@ -22,8 +31,8 @@ namespace AdventCalendarCode
                 //new Day10(test),
                 //new Day11(test),
 
-
-                new Day14(test)
+                new Day13(test),
+                //new Day14(test)
             };
 
             foreach (var day in days) day.Run();
