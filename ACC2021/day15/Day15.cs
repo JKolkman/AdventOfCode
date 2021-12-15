@@ -108,7 +108,7 @@ namespace AdventCalendarCode.day15
             }
 
             var finalNode = grid[grid.GetUpperBound(0), grid.GetUpperBound(1)];
-            Console.WriteLine(finalNode.Distance + " : " + (time - DateTime.UtcNow));
+            Console.WriteLine(finalNode.Distance + " : " + (DateTime.UtcNow - time));
             //PrintGrid(finalNode.VisitedNodes);
         }
 
