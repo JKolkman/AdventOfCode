@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1wa00yQUgETP4R5iOiNBo9wjQTqJnkCY2emCaM0Y3Id+iHWQokJUzCSoEx4ouS600m98rv7nz+a/9NDiPAzYYw==",
+  "dgSpecHash": "4sUAzOM1LxkFW95vTgD6ty/mt7j+KsnDhmCgAEuxRZQFZ9nK8kDcexsTpM5MyQJ0G9dNKbKDnwPTbS37XFbpmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Joost Kolkman\\RiderProjects\\AdventCalendarCode\\ACC2021\\ACC2021.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Joost Kolkman\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+  ],
   "logs": []
 }

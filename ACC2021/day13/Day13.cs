@@ -33,7 +33,7 @@ namespace AdventCalendarCode.day13
                 else
                 {
                     var split = line.Split(",");
-                    list.Add((int.Parse(split[0]), int.Parse(split[1])));
+                    list.Add((int.Parse(split[1]), int.Parse(split[0])));
                 }
             }
 
@@ -52,7 +52,7 @@ namespace AdventCalendarCode.day13
 
                 foreach (var l in list)
                 {
-                    if (whichAxle == 'y')
+                    if (whichAxle == 'x')
                     {
                         if (l.Item2 < pos)
                         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AdventCalendarCode.day13;
 using AdventCalendarCode.day14;
+using AdventCalendarCode.day15;
 
 namespace AdventCalendarCode
 {
@@ -31,8 +32,9 @@ namespace AdventCalendarCode
                 //new Day10(test),
                 //new Day11(test),
 
-                new Day13(test),
+                //new Day13(test),
                 //new Day14(test)
+                new Day15(test),
             };
 
             foreach (var day in days) day.Run();
