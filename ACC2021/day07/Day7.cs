@@ -17,13 +17,12 @@ namespace AdventCalendarCode.day07
 
         public void Run()
         {
-            Console.Write("Day 07: ");
             BothTasks();
         }
 
         private void BothTasks()
         {
-            
+            var timer = DateTime.UtcNow;
             var numberCount = _inputNum.Length;
             var halfIndex = _inputNum.Length / 2;
             var sortedNumbers = _inputNum.OrderBy(n=>n).ToArray();
@@ -71,9 +70,10 @@ namespace AdventCalendarCode.day07
             
             var task2res = (fuelTask2Ceil < fuelTask2Floor) ? fuelTask2Ceil : fuelTask2Floor;
             
-            Console.WriteLine($"(1) {fuelTask1}");
-            Console.Write("        ");
-            Console.WriteLine($"(2) {task2res}");
+            Console.WriteLine($"07.X: {(DateTime.UtcNow - timer).TotalMilliseconds} ms");
+            //Console.WriteLine($"(1) {fuelTask1}");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {task2res}");
         }
     }
 }

@@ -24,14 +24,15 @@ namespace AdventCalendarCode.day14
         {
             var template = _input[0];
             var insertionRules = _input.Skip(2).ToArray();
-            Console.Write("Day 14: ");
-            Tasks(template, insertionRules, 10, 1);
-            Console.Write("        ");
-            Tasks(template, insertionRules, 40, 2);
+            Console.Write("14.1: ");
+            Tasks(template, insertionRules, 10);
+            Console.Write("14.2: ");
+            Tasks(template, insertionRules, 40);
         }
 
-        private static void Tasks(string template, string[] insertionRules, int steps, int task)
+        private static void Tasks(string template, string[] insertionRules, int steps)
         {
+            var timer = DateTime.UtcNow;
             var dictionary = new Dictionary<string, double>();
             var charCount = new Dictionary<string, double>();
             for (var i = 0; i < template.Length; i++)
@@ -59,7 +60,8 @@ namespace AdventCalendarCode.day14
                 }
                 dictionary = new Dictionary<string, double>(bufferDict);
             }
-            Console.WriteLine($"({task}) {charCount.Values.Max() - charCount.Values.Min()}");
+            Console.WriteLine($"{(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"({task}) {charCount.Values.Max() - charCount.Values.Min()}");
         }
 
         private static Dictionary<string, double> IncreaseDictionary(Dictionary<string, double> dict,string key, double value)

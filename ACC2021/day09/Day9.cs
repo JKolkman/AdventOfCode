@@ -32,13 +32,13 @@ namespace AdventCalendarCode.day09
 
         public void Run()
         {
-            Console.Write("Day 09: ");
             Task1();
             Task2();
         }
         
         private void Task1()
         {
+            var timer = DateTime.UtcNow;
             var total = 0;
             for (var y = 0; y < _field.GetLength(0); y++)
             {
@@ -50,12 +50,14 @@ namespace AdventCalendarCode.day09
                     _lowPoints.Add(new Point(_field[y, x], x, y));
                 }
             }
+            Console.WriteLine($"09.1: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
 
-            Console.WriteLine($"(1) {total}");
+            //Console.WriteLine($"(1) {total}");
         }
 
         private void Task2()
         {
+            var timer = DateTime.UtcNow;
             var basins = new List<int>();
             foreach (var point in _lowPoints)
             {
@@ -86,9 +88,10 @@ namespace AdventCalendarCode.day09
 
             basins.Sort();
             basins.Reverse();
-
-            Console.Write("        ");
-            Console.WriteLine($"(2) {basins[0] * basins[1] * basins[2]}");
+            
+            Console.WriteLine($"09.2: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {basins[0] * basins[1] * basins[2]}");
             
         }
 

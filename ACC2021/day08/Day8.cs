@@ -20,19 +20,21 @@ namespace AdventCalendarCode.day08
 
         public void Run()
         {
-            Console.Write("Day 08: ");
             Task1();
             Task2();
         }
 
         private void Task1()
         {
+            var timer = DateTime.UtcNow;
             var count = (from line in _input select line.Split("|")[1].Trim() into afterDelimiter select afterDelimiter.Split(" ") into results select results.Count(res => res.Length is 2 or 3 or 4 or 7)).Sum();
-            Console.WriteLine($"(1) {count}");
+            Console.WriteLine($"08.1: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"(1) {count}");
         }
 
         private void Task2()
         {
+            var timer = DateTime.UtcNow;
             var dataSet = Array.ConvertAll(_input, s => s.Split("|")[0].Trim().Split(" "));
             var resultSet = Array.ConvertAll(_input, s => s.Split("|")[1].Trim().Split(" "));
             var total = 0;
@@ -257,9 +259,9 @@ namespace AdventCalendarCode.day08
 
                 total += int.Parse(numOfSingleSet);
             }
-            
-            Console.Write("        ");
-            Console.WriteLine($"(2) {total}");
+            Console.WriteLine($"08.2: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {total}");
         }
         
         private static string SortString(string input)

@@ -20,12 +20,12 @@ namespace AdventCalendarCode.day11
         }
         public void Run()
         {
-            Console.Write("Day 11: ");
-            Task1();
+            Tasks();
         }
 
-        private void Task1()
+        private void Tasks()
         {
+            var timer = DateTime.UtcNow;
             var temp = Array.ConvertAll(_input, s => s.ToCharArray());
             var field = Array.ConvertAll(temp, s => Array.ConvertAll(s, c => int.Parse(c.ToString())));
             var flashCount = 0;
@@ -85,8 +85,9 @@ namespace AdventCalendarCode.day11
                     allFlashed = true;
                 }
             }
-            Console.WriteLine($"(1) {flashCountTask1}");
-            Console.WriteLine($"(2) {run}");
+            Console.WriteLine($"11.X: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"(1) {flashCountTask1}");
+            //Console.WriteLine($"(2) {run}");
         }
     }
 }

@@ -42,6 +42,7 @@ namespace AdventCalendarCode.day13
 
         private void Task1(List<(int, int)> list, Queue<string> instructions)
         {
+            var timer = DateTime.UtcNow;
             var firstRun = true;
             while (instructions.Count > 0)
             {
@@ -82,27 +83,28 @@ namespace AdventCalendarCode.day13
 
                 list = newList;
                 if (!firstRun) continue;
-                Console.WriteLine($"(1) {list.Distinct().Count()}");
+                //Console.WriteLine($"(1) {list.Distinct().Count()}");
                 firstRun = false;
             }
 
             var xHigh = list.Max(x => x.Item1) + 1;
             var yHigh = list.Max(x => x.Item2) + 1;
 
-            for (int i = 0; i < xHigh; i++)
+            Console.WriteLine($"13.X: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            for (var i = 0; i < xHigh; i++)
             {
-                for (int j = 0; j < yHigh; j++)
+                for (var j = 0; j < yHigh; j++)
                 {
                     if (list.Contains((i,j)))
                     {
-                        Console.Write(" #");
+                        //Console.Write(" #");
                     }
                     else
                     {
-                        Console.Write(" .");
+                        //Console.Write(" .");
                     }
                 }
-                Console.WriteLine();
+                //Console.WriteLine();
             }
         }
     }

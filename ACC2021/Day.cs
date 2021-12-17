@@ -4,9 +4,6 @@ namespace AdventCalendarCode
 {
     public interface IDay
     {
-        public void Run()
-        {
-            
-        }
+        public void Run();
     }
 }

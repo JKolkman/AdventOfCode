@@ -19,12 +19,12 @@ namespace AdventCalendarCode.day04
 
         public void Run()
         {
-            Console.Write("Day 04: ");
             BothTasks();
         }
 
         private void BothTasks()
         {
+            var timer = DateTime.UtcNow;
             var bingoNumbers = Array.ConvertAll(_lines[0].Split(","), int.Parse);
             var (i1, item3) = (-1, -1);
             var (i2, item4) = (-1, -1);
@@ -51,9 +51,10 @@ namespace AdventCalendarCode.day04
                     item4 = num;
                 }
             }
-            Console.WriteLine($"(1) {i1 * item3}");
-            Console.Write("        ");
-            Console.WriteLine($"(2) {i2 * item4}");
+            Console.WriteLine($"04.X: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"(1) {i1 * item3}");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {i2 * item4}");
         }
     }
 }

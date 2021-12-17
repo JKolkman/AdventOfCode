@@ -16,13 +16,13 @@ namespace AdventCalendarCode.day03
 
         public void Run()
         {
-            Console.Write("Day 03: ");
             Task1();
             Task2();
         }
 
         private void Task1()
         {
+            var timer = DateTime.UtcNow;
             var nums = new[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
             foreach (var line in _lines)
@@ -54,12 +54,13 @@ namespace AdventCalendarCode.day03
                         break;
                 }
             }
-            
-            Console.WriteLine($"(1) {(Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2))}");
+            Console.WriteLine($"03.1: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"(1) {(Convert.ToInt32(gamma, 2) * Convert.ToInt32(epsilon, 2))}");
         }
 
         private void Task2()
         {
+            var timer = DateTime.UtcNow;
             var oxygen = _lines.ToList();
             var co2 = _lines.ToList();
             
@@ -68,8 +69,9 @@ namespace AdventCalendarCode.day03
                 oxygen = ReturnCuratedList(oxygen, i, true);
                 co2 = ReturnCuratedList(co2, i, false);
             }
-            Console.Write("        ");
-            Console.WriteLine($"(2) {(Convert.ToInt32(oxygen.ToArray()[0], 2) * Convert.ToInt32(co2.ToArray()[0], 2))}");
+            Console.WriteLine($"03.2: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {(Convert.ToInt32(oxygen.ToArray()[0], 2) * Convert.ToInt32(co2.ToArray()[0], 2))}");
         }
 
         private static List<string> ReturnCuratedList(List<string> input, int i, bool oxygen)

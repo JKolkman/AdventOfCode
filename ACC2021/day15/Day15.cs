@@ -7,8 +7,8 @@ namespace AdventCalendarCode.day15
 {
     public class Day15 : IDay
     {
-        private string[] _input;
-        private Node[,] grid;
+        private readonly string[] _input;
+        private static Node[,] _grid;
 
         public Day15(bool test)
         {
@@ -23,17 +23,18 @@ namespace AdventCalendarCode.day15
 
         public void Run()
         {
-            grid = new Node[_input.Length, _input[0].Length];
+            var time = DateTime.UtcNow;
+            _grid = new Node[_input.Length, _input[0].Length];
             for (var i = 0; i < _input.Length; i++)
             {
                 for (var j = 0; j < _input[i].Length; j++)
                 {
                     var weight = int.Parse(_input[i].ToCharArray()[j].ToString());
-                    grid[i, j] = new Node(j, i, weight);
+                    _grid[i, j] = new Node(j, i, weight);
                 }
             }
-
-            var expandedGrid = new Node[grid.GetLength(0) * 5, grid.GetLength(1) * 5];
+            
+            var expandedGrid = new Node[_grid.GetLength(0) * 5, _grid.GetLength(1) * 5];
             for (var i = 0; i < _input.Length; i++)
             {
                 for (var j = 0; j < _input[i].Length; j++)
@@ -59,117 +60,85 @@ namespace AdventCalendarCode.day15
                     }
                 }
             }
-            Console.WriteLine();
-            Console.Write(("(1) "));
+            
+            Console.Write(("15.1: "));
             Tasks();
-            grid = expandedGrid;
-            Console.Write(("(2) "));
+            _grid = expandedGrid;
+            Console.Write(("15.2: "));
             Tasks();
         }
 
-        private void Tasks()
+        private static void Tasks()
         {
-            var time = DateTime.UtcNow;
-            grid[0, 0].Distance = 0;
+            var timer = DateTime.UtcNow;
             var queue = new Queue<(int, int)>();
-            var visited = new HashSet<(int, int)>();
-
-            var nodeDict = new Dictionary<(int, int), Node>
-            {
-                [(0, 0)] = grid[0, 0]
-            };
+            _grid[0, 0].InQueue = true;
             queue.Enqueue((0, 0));
             while (queue.TryDequeue(out var coords))
             {
-                var n = nodeDict[coords];
-                visited.Add(coords);
-                nodeDict.Remove(coords);
-
-                FindNeighbours(n).ToList().ForEach(x =>
+                var n = _grid[coords.Item1, coords.Item2];
+                n.Visited = true;
+                n.InQueue = false;
+                FindNeighbours(n).ForEach(x =>
                 {
-                    var nCoord = (x.Y, x.X);
-                    if (visited.Contains(nCoord) || nodeDict.ContainsKey(nCoord))
+                    if (x.Visited|| x.InQueue)
                     {
                         if (x.Distance > x.Weight + n.Distance)
                         {
                             x.Distance = x.Weight + n.Distance;
                         }
-
                         if (n.Distance <= n.Weight + x.Distance) return;
                         n.Distance = n.Weight + x.Distance;
                     }
                     else
                     {
                         x.Distance = x.Weight + n.Distance;
-                        nodeDict.Add((x.Y, x.X), x);
+                        x.InQueue = true;
                         queue.Enqueue((x.Y, x.X));
                     }
                 });
             }
 
-            var finalNode = grid[grid.GetUpperBound(0), grid.GetUpperBound(1)];
-            Console.WriteLine(finalNode.Distance + " : " + (DateTime.UtcNow - time));
-            //PrintGrid(finalNode.VisitedNodes);
+            var finalNode = _grid[_grid.GetUpperBound(0), _grid.GetUpperBound(1)];
+            Console.WriteLine($"{(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine(finalNode.Distance + " : " + (DateTime.UtcNow - timer));
         }
 
-        private IEnumerable<Node> FindNeighbours(Node node)
+        private static List<Node> FindNeighbours(Node node)
         {
-            var x = node.X;
-            var y = node.Y;
             var neighbours = new List<Node>();
 
-            if (x < grid.GetLength(1) - 1)
+            if (node.X < _grid.GetLength(1) - 1)
             {
-                neighbours.Add(grid[y, x + 1]);
+                neighbours.Add(_grid[node.Y, node.X + 1]);
             }
 
-            if (y < grid.GetLength(0) - 1)
+            if (node.Y < _grid.GetLength(0) - 1)
             {
-                neighbours.Add(grid[y + 1, x]);
+                neighbours.Add(_grid[node.Y + 1, node.X]);
             }
 
             return neighbours;
         }
-
-        private void PrintGrid(System.Collections.Generic.ICollection<Node> list, Node[,] customGrid = null)
-        {
-            customGrid ??= grid;
-
-            var y = customGrid.GetLength(0);
-            var x = customGrid.GetLength(1);
-            Console.WriteLine();
-            for (var i = 0; i < y; i++)
-            {
-                for (var j = 0; j < x; j++)
-                {
-                    Console.ForegroundColor =
-                        list.Contains(customGrid[i, j]) ? ConsoleColor.Cyan : ConsoleColor.DarkGray;
-
-                    Console.Write($" {customGrid[i, j].Weight}");
-                    Console.ResetColor();
-                }
-
-                Console.WriteLine();
-            }
-        }
     }
 
     internal class Node
-    {
-        public int Distance { get; set; }
-        public readonly int Y;
-        public readonly int X;
-
-        public readonly int Weight;
-        //public List<Node> VisitedNodes;
-
-        public Node(int x, int y, int weight)
         {
-            X = x;
-            Y = y;
-            Weight = weight;
-            Distance = int.MaxValue / 2;
-            //VisitedNodes = new List<Node>();
+            public int Distance;
+            public readonly int Y;
+            public readonly int X;
+            public readonly int Weight;
+            public bool InQueue;
+            public bool Visited;
+
+            public Node(int x, int y, int weight)
+            {
+                X = x;
+                Y = y;
+                Weight = weight;
+                Distance = 0;
+                InQueue = false;
+                Visited = false;
+            }
         }
-    }
 }

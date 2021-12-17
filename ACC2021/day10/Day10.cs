@@ -38,7 +38,7 @@ namespace AdventCalendarCode.day10
             _input = test switch
             {
                 true => System.IO.File.ReadAllLines(
-                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\ACC2021\day10\Day10-Test Input.txt"),
+                    @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\ACC2021\day10\Day10-TestInput.txt"),
                 false => System.IO.File.ReadAllLines(
                     @"C:\Users\Joost Kolkman\RiderProjects\AdventCalendarCode\ACC2021\day10\Day10-Input.txt")
             };
@@ -46,12 +46,12 @@ namespace AdventCalendarCode.day10
 
         public void Run()
         {
-            Console.Write("Day 10: ");
             Tasks();
         }
 
         private void Tasks()
         {
+            var timer = DateTime.UtcNow;
             var score = 0;
             var task2Scores = new List<long>();
             
@@ -88,9 +88,12 @@ namespace AdventCalendarCode.day10
             
             task2Scores.Sort();
             var middle = task2Scores.Count / 2;
-            Console.WriteLine($"(1) {score}");
-            Console.Write("        ");
-            Console.WriteLine($"(2) {task2Scores[middle]}");
+            
+            Console.WriteLine($"10.X: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            
+           // Console.WriteLine($"(1) {score}");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {task2Scores[middle]}");
         }
     }
 }

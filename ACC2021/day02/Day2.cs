@@ -14,12 +14,12 @@ namespace AdventCalendarCode.day2
 
         public void Run()
         {
-            Console.Write("Day 02: ");
             BothTasks();
         }
 
         private void BothTasks()
         {
+            var timer = DateTime.UtcNow;
             var nums = new int[] {0,0,0}; // 0 Depth, 1 Aim, 2 Distance
             foreach (var line in _lines)
             {
@@ -39,9 +39,9 @@ namespace AdventCalendarCode.day2
                         break;
                 }
             }
-            
-            Console.WriteLine($"(1) {nums[1] * nums[2]}");
-            Console.WriteLine($"        (2) {nums[0] * nums[2]}");
+            Console.WriteLine($"02.X: {(DateTime.UtcNow - timer).TotalMilliseconds}ms");
+            //Console.WriteLine($"(1) {nums[1] * nums[2]}");
+            //Console.WriteLine($"        (2) {nums[0] * nums[2]}");
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace AdventCalendarCode.day12
 {
     public class Day12 : IDay
@@ -16,7 +18,7 @@ namespace AdventCalendarCode.day12
         }
         public void Run()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("12.X: NOT DONE");
         }
 
         private void Task1()

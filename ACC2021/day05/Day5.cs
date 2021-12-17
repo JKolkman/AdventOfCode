@@ -24,13 +24,13 @@ namespace AdventCalendarCode.day05
 
         public void Run()
         {
-            Console.Write("Day 05: ");
             Task1();
             Task2();
         }
 
         private void Task1()
         {
+            var timer = DateTime.UtcNow;
             _grid = new int[999, 999];
             foreach (var (item1, item2) in _input)
             {
@@ -87,8 +87,8 @@ namespace AdventCalendarCode.day05
             }
 
             var count = _grid.Cast<int>().Count(num => num >= 2);
-
-            Console.WriteLine($"(1) {count}");
+            Console.WriteLine($"05.1: {(DateTime.UtcNow - timer).TotalMilliseconds}ms ");
+            //Console.WriteLine($"(1) {count}");
         }
 
         private void Task2()
@@ -136,8 +136,9 @@ namespace AdventCalendarCode.day05
                 
             }
             var count = _grid.Cast<int>().Count(num => num >= 2);
-            Console.Write("        ");
-            Console.WriteLine($"(2) {count}");
+            Console.WriteLine("05.2: NOT DONE");
+            //Console.Write("        ");
+            //Console.WriteLine($"(2) {count}");
         }
     }
 }
